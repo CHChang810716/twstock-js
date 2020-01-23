@@ -1,0 +1,45 @@
+{
+  "name": "twstock-js",
+  "version": "0.0.1",
+  "description": "js taiwan stock crawler",
+  "main": "index.js",
+  "scripts": {
+    "build-src": "babel src --out-dir lib",
+    "build-test": "babel test-src --out-dir test",
+    "build": "run-s build-src build-test",
+    "test": "mocha"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CHChang810716/twstock-js.git"
+  },
+  "keywords": [
+    "tw",
+    "taiwan",
+    "stock",
+    "crawler"
+  ],
+  "author": "Chia-Hua Chang",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/CHChang810716/twstock-js/issues"
+  },
+  "homepage": "https://github.com/CHChang810716/twstock-js#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "mocha": "^7.0.0",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "string-format": "^2.0.0"
+  }
+}
