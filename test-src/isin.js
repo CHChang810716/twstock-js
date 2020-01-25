@@ -1,16 +1,13 @@
 import isin from '../lib/isin.js'
-
-const main = async () => {
-    const data = await isin.get_all()
-    console.log(data[0])
-    console.log(data[20])
-    console.log(data[17640])
-}
-
-(async() => {
-    try {
-        await main()
-    }catch(e) {
-        console.error(e)
-    }
-})()
+import should from 'should'
+describe('isin', () =>{
+    it('get all test', () => {
+        return isin.get_all().then((data)=>{
+            should.exist(data)
+            should.exist(data.length)
+            should.exist(data[0])
+            should.exist(data[17640])
+            should.exist(data[17640][0])
+        })
+    }).timeout(10000)
+})
