@@ -3,6 +3,7 @@ import rq from 'request-promise'
 import cio from 'cheerio'
 import iconv from 'iconv-lite'
 import {market_type} from './defs.js'
+import StockMeta from './stock-meta.js'
 
 const str_mode_listed = 2 // 上市
 const str_mode_otc = 4 // 上櫃
@@ -37,8 +38,9 @@ const fetch = async (url = listed_url, proxy = undefined) => {
         const code_name     = code_name_str.split('　')
         const code          = code_name[0]
         const name          = code_name[1]
-        if(start.split('/').length < 3) continue
-        res.push([market, code, name, group, start, isin, cfi])
+        const start_arr     = start.split('/')
+        if(start_arr.length < 3) continue
+        res.push(new StockMeta(code, name, isin, start_arr, market, group))
     }
     return res
 }

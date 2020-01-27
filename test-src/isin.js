@@ -7,7 +7,7 @@ describe('isin', () =>{
             should.exist(data.length)
             should.exist(data[0])
             should.exist(data[17640])
-            should.exist(data[17640][0])
+            should.exist(data[17640].code)
         })
     }).timeout(10000)
 })
